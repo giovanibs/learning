@@ -1,0 +1,1728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>correios.correios API documentation</title>
+<meta name="description" content="Módulo com métodos para realizar o Exercício Excel Correios. Faz a validação da demanda,
+executa a busca no site dos correios e, finalmente, grava os …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>correios.correios</code></h1>
+</header>
+<section id="section-intro">
+<p>Módulo com métodos para realizar o Exercício Excel Correios. Faz a validação da demanda,
+executa a busca no site dos correios e, finalmente, grava os dados em Excel.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;Módulo com métodos para realizar o Exercício Excel Correios. Faz a validação da demanda,
+executa a busca no site dos correios e, finalmente, grava os dados em Excel.&#39;&#39;&#39;
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import os
+from openpyxl import Workbook, load_workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+import re
+import correios.constants as const
+from time import sleep, perf_counter, time
+import pandas as pd
+
+class Correios(webdriver.Chrome):
+    &#39;&#39;&#39;Cria novo driver e possui métodos para realizar a validação da demanda,
+        executar a busca no site dos correios e, finalmente, gravar os dados em Excel.&#39;&#39;&#39;
+    def __init__(self, driver_path = const.DRIVER_PATH, teardown = True):
+        &#39;&#39;&#39;Cria nova instância da classe Correios. Adiciona a pasta com 
+        drivers no PATH (variáveis de ambiente)
+
+        IMPORTANTE: comentar a linha no método __init__ caso não seja necessário adicionar
+        o caminho dos drivers no PATH (variáveis de ambiente).
+        
+        Parâmetros
+        ----------
+            driver_path (str): Caminho onde estão salvos os drivers dos navegadores (pode ser alterado nas contantes)
+            
+            teardown (bool): Flag utilizada no método __exit__
+        &#39;&#39;&#39;
+        self.driver_path = driver_path
+        self.teardown = teardown
+        
+        # COMENTAR A LINHA ABAIXO SE NÃO PRECISAR ALTERAR O PATH NAS VARIÁVEIS DE AMBIENTE
+        os.environ[&#39;PATH&#39;] += os.pathsep + self.driver_path
+        
+        # cria instância da classe webdriver.Chrome para ter acesso a todos os seus métodos
+        super(Correios, self).__init__()
+
+        self.implicitly_wait(5)
+
+    def __exit__(self, *args) -&gt; None:
+        &#39;&#39;&#39;Fecha a webpage caso o atributo `teardown` da instância seja `True`.
+        &#39;&#39;&#39;
+        if self.teardown:
+            self.quit()
+
+    def create_results_dir(self):
+        &#39;&#39;&#39;Cria os diretórios para demandas executadas e demandas recusadas (se necessário).&#39;&#39;&#39;
+        try:
+            for dir in [const.DENIED, const.COMPLETED]:
+                new_dir = os.path.join(os.getcwd(),const.DATA_PATH, dir)
+                os.makedirs(new_dir, exist_ok=True)
+        except:
+            print(&#39;Aconteceu algo de errado ao criar as pastas&#39;)
+
+    def land_first_page(self):
+        &#39;&#39;&#39;  Abre nova página da web com a URL Base &#39;&#39;&#39;
+        self.get(const.BASE_URL)
+
+    def error_msg(self, idx, msg):
+        &#39;&#39;&#39;Retorna a mensagem de erro para uma pesquisa.
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada.
+            
+            msg (str): Código da mensagem de erro.
+        
+        Retorna
+        ----------
+        Um DataFrame com o Linha de Excel Entrada | Mensagem de Erro
+        &#39;&#39;&#39;
+        resultados_msg = pd.DataFrame(
+            [ [idx, const.MSG_STATUS[msg], const.MSG_STATUS[msg]] ],
+            columns=[
+                const.RESULTS_HEADER[0], # Linha Excel Entrada
+                const.RESULTS_HEADER[1], # Critério de busca
+                const.RESULTS_HEADER[7] # Mensagem
+            ]
+        )              
+        return resultados_msg
+
+    def execute_search(self, search_crit, search_param):
+        &#39;&#39;&#39;Executa o preenchimento dos dados no website e clica no botão de pesquisa.
+        
+        Parâmetros
+        ----------
+            search_crit (str): Critério de busca
+            
+            search_param (str): Parâmetro de busca dos campos CEP ou Nome
+            
+        Retorna
+        ----------
+            1 caso a pesquisa tenha resultados.
+
+            0 caso a pesquisa não tenha resultados.
+        &#39;&#39;&#39;
+        try:
+            self.new_search(search_crit)
+            search_input = self.find_element_by_id(const.CRITERIA[&#39;SEARCH_BTN_ID&#39;][search_crit])
+            self.paste_keys(search_param, search_input)
+            search_button = self.find_element_by_id(&#39;btn_pesquisar&#39;)
+            search_button.click()
+            # próximos passos: tirar esses sleeps()
+            sleep(2)
+            search_status = self.find_element_by_id(&#39;mensagem-resultado&#39;).text
+            
+            if search_status == const.MSG_STATUS[&#39;No_results&#39;]:
+                return 0
+            # Como a busca é realizada em outra webpage, temos mensagem
+            # de log diferente para cada (&#39;Nome&#39; ou &#39;CEP&#39;)
+            elif search_status == const.CRITERIA[&#39;SEARCH_LOG&#39;][search_crit]:
+                return 1
+        except:
+            # próximos passos: levantar os possíveis erros para tratar
+            print(&#39;Ocorreu algum erro na página.&#39;)
+            return 0
+
+    def get_results(self, file_src):
+        &#39;&#39;&#39;Consolida todos o procedimentos da classe para a automação:
+        
+        1) Faz a validação do arquivo `file_src` (se recusar a demanda, pula para o passo 6).
+        
+        2) Executa a pesquisa no site para cada linha de entrada.
+        
+        3) Obtém os dados da tabela gerada pelo site.
+
+        4) Consolida os resultados de todas as linhas de entrada (se não houver resultados,
+        marca a demanda como recusada e pula para o passo 6)
+        
+        5) Grava os dados no Excel de origem e salva no mesmo arquivo.
+        
+        6) Retorna o caminho do arquivo de saída.
+        
+        Parâmetros
+        ----------
+            file_src (str): Caminho do arquivo de entrada.
+            
+        Retorna
+        ----------
+            Tuple com 2 valores:
+            1) Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+            A pasta de destino pode ser definida manualmente nas constantes (costants.py) COMPLETED e DENIED.
+            2) Status do job (completed | denied)
+        &#39;&#39;&#39;
+        print(&#39;Validando o arquivo de demanda...&#39;)
+        wb = load_workbook(file_src)
+        search_table = self.validate_demand(wb)
+        search_summary = pd.DataFrame(columns=const.SUMMARY_HEADER)
+        self.create_results_dir()
+        
+        if not search_table:
+            print(&#39;Demanda recusada. Movendo arquivo...&#39;)
+            wb.close()
+            return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+       
+        else:
+            print(&#39;Demanda aceita. Procedendo para a busca...\n\n&#39;)
+            
+            # Dataframe que conterá todos os resultados obtidos na pesquisa
+            resultados = pd.DataFrame(columns=const.RESULTS_HEADER)
+            
+            # Loop para cada linha de dados no Excel capturado
+            for idx, row in enumerate(search_table, start=1):
+                print(f&#39;\n... Linha de dados número #{idx}...&#39;)
+         
+                # Valida a pesquisa
+                search_msg, search_crit, search_param = self.validate_search(row)
+               
+                # SE obtiver sucesso na validação
+                if search_msg[0] == &#39;S&#39;:
+                    print(&#39;Extraindo dados da tabela...&#39;)
+                    records = self.get_table()
+                    nan_filler = self.nan_filler(idx, search_crit, search_param, const.MSG_STATUS[search_msg])
+                    
+                    new_records = pd.concat([pd.DataFrame(columns=const.RESULTS_HEADER), records]).fillna(nan_filler)
+                    resultados = pd.concat([resultados, new_records])
+                    
+                    # Atualiza informações para o resumo
+                    new_search_summary = self.new_search_summary(idx, row, search_msg)
+                    search_summary = pd.concat( [search_summary, new_search_summary])
+                else:
+                    print(&#39;Sem resultados&#39;)
+                    resultados_msg = self.error_msg(idx, search_msg)
+                    resultados = pd.concat([resultados, resultados_msg]) #.fillna(&#39;&#39;)
+                
+                    # Atualiza informações para o resumo
+                    new_search_summary = self.new_search_summary(idx, row, search_msg)
+                    search_summary = pd.concat( [search_summary, new_search_summary])
+
+
+            # caso não haja resultados obtidos para todas as linhas de demanda, 
+            # tomando como base o campo &#39;CEP&#39;
+            # mover Excel para pasta de demanda recusada
+            if not resultados[const.RESULTS_HEADER[6]].count():
+                return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+
+            ws2 = wb.create_sheet(title=&#39;Resultados&#39;)
+            for r in dataframe_to_rows(resultados, index=False, header=True):
+                ws2.append(r)
+            
+            ws3 = wb.create_sheet(title=&#39;Resumo&#39;)
+            for r in dataframe_to_rows(search_summary, index=False, header=True):
+                ws3.append(r)
+
+            wb.save(file_src)
+        wb.close()
+        return (self.new_file_path(file_src, const.COMPLETED), &#39;completed&#39;)
+
+    def get_table(self):
+        &#39;&#39;&#39; Lê a tabela da página HTML resultante da pesquisa e grava os dados em um objeto
+        &#39;pandas.DataFrame&#39;.
+
+        Retorna
+        ----------
+           Dataframe com os dados obtidos da tabela na página com os resultados da pesquisa.
+        &#39;&#39;&#39;
+        # variável para fazer um entre o número de resultados apontado no site e o obtido
+        records_size = int(self.find_element_by_id(&#39;navegacao-total&#39;).text.split()[-1])
+        page_records = pd.DataFrame()
+        next_page = 1
+
+        while next_page:
+            sleep(2) 
+            page_records = page_records.append(pd.read_html(self.page_source))
+
+            # verifica se o botão &#39;Próximo&#39; está visível na página
+            try:
+                next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo&#34;]&#39;)
+            except:
+                try:
+                    next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo esconde&#34;]&#39;)
+                except:
+                    # Sinalizar para tratar caso haja alguma necessidade
+                    print(&#39;****** Algo deu errado...&#39;)
+                break
+
+            next_page.click()
+        
+        records_rows, records_cols = page_records.shape
+        # Check se pegou todos os dados
+        if records_size != records_rows:
+            print(f&#39;Operação falhou.\nResultados na busca: {records_size}.\nRegistros obtidos: {records_rows}.&#39;)
+
+        return page_records
+
+    def nan_filler(self, idx, search_crit, search_param, search_msg):
+        &#39;&#39;&#39;Retorna um dict para ser utilizado no método `fillna`,
+        que preenche os campos vazios de acordo com o valor apontado
+        no nome da coluna.
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada 
+            
+            search_crit (str): Critério de busca utilizado
+            
+            search_param (str): Parâmetro de busca dos campos CEP ou Nome
+            
+            search_msg (str): Mensagem de status da pesquisa
+
+        Retorna
+        ----------
+        Retorna um dict para ser utilizado no método `fillna`,
+        que preenche os campos vazios de acordo com o valor apontado
+        no nome da coluna.
+        
+        &#39;&#39;&#39;
+        return {
+                const.RESULTS_HEADER[0]: idx,
+                const.RESULTS_HEADER[1]: search_crit,
+                const.RESULTS_HEADER[2]: search_param,
+                const.RESULTS_HEADER[7]: search_msg
+                }
+
+    def new_file_path(self, file_src, job_status):
+        &#39;&#39;&#39;Gera o caminho/nome do arquivo de saída do job,
+        adicionando uma timestamp ao nome do arquivo e
+        definindo a pasta de destino conforme a
+        validação da demanda.
+        
+        Parâmetros
+        ----------
+            file_src (str):     Caminho do arquivo original
+            
+            job_status (str):   Mensagem de validação da demanda
+            
+        Retorna
+        ----------
+            Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+        &#39;&#39;&#39;
+        # Timestamp
+        ts = time()
+        # caminho da pasta, nome do arquivo
+        root_path, base_name = os.path.split(file_src)
+        # novo nome com timestamp
+        new_name = base_name.replace(&#39;.xlsx&#39;, f&#39;_{ts}.xlsx&#39;)
+        dest = os.path.join(root_path, job_status, new_name)
+        return dest
+       
+    def new_search(self, search_crit):
+        &#39;&#39;&#39;Aponta o navegador para a página de pesquisa conforme critério: CEP ou Nome.
+
+        A página de pesquisa por CEP ajuda a mitigar a necessidade de filtrar o número
+        do CEP encontrado no campo Logradouro/Localidade (eg: CEP parcial: 05025).
+
+        Parâmetros
+        ----------
+            search_crit (str): Critério de busca
+        &#39;&#39;&#39;
+        try:
+            self.get(const.CRITERIA[&#39;URL&#39;][search_crit])
+        except:
+            print(&#39;Ocorreu algum erro...&#39;)
+        sleep(2)
+
+    def new_search_summary(self, idx, row, search_msg):
+        &#39;&#39;&#39;Método que retorna uma nova linha para a página de resumo
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada 
+            
+            row (list): Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+            search_msg (str): Mensagem de status da pesquisa
+
+        Retorna
+        ----------
+            Dataframe com informações para a página de resumo&#39;&#39;&#39;
+        search_name, search_CEP, search_crit = row
+        
+        new_search_summary = pd.DataFrame(
+            [[idx, search_name, search_CEP, search_crit, const.MSG_STATUS[search_msg]]]
+            ,columns=const.SUMMARY_HEADER
+        )
+        
+        return new_search_summary
+
+    def paste_keys(self, text, elem):
+        &#39;&#39;&#39;Cola a informação no campo de busca.
+
+        Parameters
+        ----------
+            text (str): Termo a ser pesquisado
+
+            elem (WebElement): Elemento HTML do campo de busca
+        &#39;&#39;&#39;
+        os.system(&#34;echo %s| clip&#34; % text.strip())
+        elem.send_keys(Keys.CONTROL, &#39;v&#39;)
+
+    def validate_CEP(self, search_param, no_crit=False):
+        &#39;&#39;&#39;Valida o valor do campo &#39;CEP&#39;.
+
+        Parâmetros
+        ----------
+            search_param (str): Parâmetro de busca do campo &#39;CEP&#39;.
+            
+            no_crit (bool): Flag para as pesquisas que estão
+            com o critério de busca inválido.
+
+        Retorna
+        ----------
+            String com código de sucesso ou fracasso (com motivo).
+            Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+        &#39;&#39;&#39;
+        # CEP vazio
+        if not search_param:
+            return &#39;Denied_no_CEP&#39; if not no_crit else &#39;Nome&#39;
+        else:
+            cep_complete = re.search(const.REGEX_CEP_COMPLETE, search_param)
+            cep_incomplete = re.search(const.REGEX_CEP_INCOMPLETE, search_param)
+            
+        if cep_complete or cep_incomplete:
+            new_param = f&#39;0{search_param}&#39; if len(search_param) == 4 else search_param
+            has_results = self.execute_search(&#39;CEP&#39;, new_param)
+            
+            if has_results:
+                if cep_complete:
+                    return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP&#39;
+                else:
+                    return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP_incomplete&#39;
+
+        return &#39;Denied_invalid_CEP&#39; if not no_crit else &#39;Nome&#39;
+
+    def validate_demand(self, wb):
+        &#39;&#39;&#39;Valida a planilha a ser utilizada na pesquisa ( deve ter 3 colunas e pelo menos 1 linha de dados para a pesquisa).
+        
+        Parâmetros
+        ----------
+            wb (Workbook): Excel a ser validado.
+
+        Retorna
+        ----------
+            Tabela de demanda caso a demanda seja validada.
+            Lista vazia caso contrário.
+        &#39;&#39;&#39;
+        ws = wb.active
+        validation = (ws.max_column == 3) and (ws.max_row &gt;= 1)
+        search_table = list(ws.values) if validation else []
+        return search_table
+ 
+    def validate_name(self, search_param, no_crit=False):
+        &#39;&#39;&#39;Valida o valor do campo Nome.
+
+        Parâmetros
+        ----------
+            search_param (str): Parâmetro de busca do campo &#39;Nome&#39;.
+            
+            no_crit (bool): Flag para as pesquisas que estão
+            com o critério de busca inválido.
+
+        Retorna
+        ----------
+            String com código de sucesso ou fracasso (com motivo).
+            Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+        &#39;&#39;&#39;
+        if not search_param:
+            return f&#39;Denied_no_name&#39;
+        
+        elif re.search(const.REGEX_NAME, search_param):
+            has_results = self.execute_search(&#39;Nome&#39;, search_param)
+
+            if has_results:
+                return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_name&#39;
+            
+        return f&#39;Denied_invalid_name&#39;
+          
+    def validate_search(self, row):
+        &#39;&#39;&#39;Valida a linha de entrada do Excel .
+        
+        Parâmetros
+        ----------
+            row: Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+        Retorna
+        ----------
+            Tuple com 3 valores: 
+            1) Código de sucesso ou fracasso (com motivo)
+            2) Critério de busca (ou `&#39;&#39;` se fracasso).
+            3) Parâmetro de busca (ou `&#39;&#39;` se fracasso).
+        &#39;&#39;&#39;
+        #  Nome,        CEP,     Critério de busca
+        search_name, search_CEP, search_crit = row
+        
+        if search_crit == &#39;CEP&#39;:
+            return (self.validate_CEP(search_CEP),
+                    search_crit,
+                    search_CEP)
+        elif search_crit == &#39;Nome&#39;:
+            return (self.validate_name(search_name),
+                    search_crit,
+                    search_name)        
+        else:
+            # Primeiro tenta validar o CEP
+            CEP_validation = self.validate_CEP(search_CEP, no_crit=1)
+
+            if CEP_validation[0] == &#39;S&#39;:
+                # se der boa a validação do CEP
+                return (CEP_validation, &#39;CEP&#39;, search_CEP)
+            
+            # Se não der boa a validação do CEP, tenta validar o Nome
+            name_validation = self.validate_name(search_name, no_crit=1)
+            if name_validation[0] == &#39;S&#39;:
+                    return (name_validation, &#39;Nome&#39;, search_name)
+            else:
+                return (f&#39;Denied_poor_parameters&#39;, &#39;&#39;, &#39;&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="correios.correios.Correios"><code class="flex name class">
+<span>class <span class="ident">Correios</span></span>
+<span>(</span><span>driver_path='C:\\SeleniumDrivers', teardown=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cria novo driver e possui métodos para realizar a validação da demanda,
+executar a busca no site dos correios e, finalmente, gravar os dados em Excel.</p>
+<p>Cria nova instância da classe Correios. Adiciona a pasta com
+drivers no PATH (variáveis de ambiente)</p>
+<p>IMPORTANTE: comentar a linha no método <strong>init</strong> caso não seja necessário adicionar
+o caminho dos drivers no PATH (variáveis de ambiente).</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>driver_path (str): Caminho onde estão salvos os drivers dos navegadores (pode ser alterado nas contantes)
+
+teardown (bool): Flag utilizada no método __exit__
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Correios(webdriver.Chrome):
+    &#39;&#39;&#39;Cria novo driver e possui métodos para realizar a validação da demanda,
+        executar a busca no site dos correios e, finalmente, gravar os dados em Excel.&#39;&#39;&#39;
+    def __init__(self, driver_path = const.DRIVER_PATH, teardown = True):
+        &#39;&#39;&#39;Cria nova instância da classe Correios. Adiciona a pasta com 
+        drivers no PATH (variáveis de ambiente)
+
+        IMPORTANTE: comentar a linha no método __init__ caso não seja necessário adicionar
+        o caminho dos drivers no PATH (variáveis de ambiente).
+        
+        Parâmetros
+        ----------
+            driver_path (str): Caminho onde estão salvos os drivers dos navegadores (pode ser alterado nas contantes)
+            
+            teardown (bool): Flag utilizada no método __exit__
+        &#39;&#39;&#39;
+        self.driver_path = driver_path
+        self.teardown = teardown
+        
+        # COMENTAR A LINHA ABAIXO SE NÃO PRECISAR ALTERAR O PATH NAS VARIÁVEIS DE AMBIENTE
+        os.environ[&#39;PATH&#39;] += os.pathsep + self.driver_path
+        
+        # cria instância da classe webdriver.Chrome para ter acesso a todos os seus métodos
+        super(Correios, self).__init__()
+
+        self.implicitly_wait(5)
+
+    def __exit__(self, *args) -&gt; None:
+        &#39;&#39;&#39;Fecha a webpage caso o atributo `teardown` da instância seja `True`.
+        &#39;&#39;&#39;
+        if self.teardown:
+            self.quit()
+
+    def create_results_dir(self):
+        &#39;&#39;&#39;Cria os diretórios para demandas executadas e demandas recusadas (se necessário).&#39;&#39;&#39;
+        try:
+            for dir in [const.DENIED, const.COMPLETED]:
+                new_dir = os.path.join(os.getcwd(),const.DATA_PATH, dir)
+                os.makedirs(new_dir, exist_ok=True)
+        except:
+            print(&#39;Aconteceu algo de errado ao criar as pastas&#39;)
+
+    def land_first_page(self):
+        &#39;&#39;&#39;  Abre nova página da web com a URL Base &#39;&#39;&#39;
+        self.get(const.BASE_URL)
+
+    def error_msg(self, idx, msg):
+        &#39;&#39;&#39;Retorna a mensagem de erro para uma pesquisa.
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada.
+            
+            msg (str): Código da mensagem de erro.
+        
+        Retorna
+        ----------
+        Um DataFrame com o Linha de Excel Entrada | Mensagem de Erro
+        &#39;&#39;&#39;
+        resultados_msg = pd.DataFrame(
+            [ [idx, const.MSG_STATUS[msg], const.MSG_STATUS[msg]] ],
+            columns=[
+                const.RESULTS_HEADER[0], # Linha Excel Entrada
+                const.RESULTS_HEADER[1], # Critério de busca
+                const.RESULTS_HEADER[7] # Mensagem
+            ]
+        )              
+        return resultados_msg
+
+    def execute_search(self, search_crit, search_param):
+        &#39;&#39;&#39;Executa o preenchimento dos dados no website e clica no botão de pesquisa.
+        
+        Parâmetros
+        ----------
+            search_crit (str): Critério de busca
+            
+            search_param (str): Parâmetro de busca dos campos CEP ou Nome
+            
+        Retorna
+        ----------
+            1 caso a pesquisa tenha resultados.
+
+            0 caso a pesquisa não tenha resultados.
+        &#39;&#39;&#39;
+        try:
+            self.new_search(search_crit)
+            search_input = self.find_element_by_id(const.CRITERIA[&#39;SEARCH_BTN_ID&#39;][search_crit])
+            self.paste_keys(search_param, search_input)
+            search_button = self.find_element_by_id(&#39;btn_pesquisar&#39;)
+            search_button.click()
+            # próximos passos: tirar esses sleeps()
+            sleep(2)
+            search_status = self.find_element_by_id(&#39;mensagem-resultado&#39;).text
+            
+            if search_status == const.MSG_STATUS[&#39;No_results&#39;]:
+                return 0
+            # Como a busca é realizada em outra webpage, temos mensagem
+            # de log diferente para cada (&#39;Nome&#39; ou &#39;CEP&#39;)
+            elif search_status == const.CRITERIA[&#39;SEARCH_LOG&#39;][search_crit]:
+                return 1
+        except:
+            # próximos passos: levantar os possíveis erros para tratar
+            print(&#39;Ocorreu algum erro na página.&#39;)
+            return 0
+
+    def get_results(self, file_src):
+        &#39;&#39;&#39;Consolida todos o procedimentos da classe para a automação:
+        
+        1) Faz a validação do arquivo `file_src` (se recusar a demanda, pula para o passo 6).
+        
+        2) Executa a pesquisa no site para cada linha de entrada.
+        
+        3) Obtém os dados da tabela gerada pelo site.
+
+        4) Consolida os resultados de todas as linhas de entrada (se não houver resultados,
+        marca a demanda como recusada e pula para o passo 6)
+        
+        5) Grava os dados no Excel de origem e salva no mesmo arquivo.
+        
+        6) Retorna o caminho do arquivo de saída.
+        
+        Parâmetros
+        ----------
+            file_src (str): Caminho do arquivo de entrada.
+            
+        Retorna
+        ----------
+            Tuple com 2 valores:
+            1) Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+            A pasta de destino pode ser definida manualmente nas constantes (costants.py) COMPLETED e DENIED.
+            2) Status do job (completed | denied)
+        &#39;&#39;&#39;
+        print(&#39;Validando o arquivo de demanda...&#39;)
+        wb = load_workbook(file_src)
+        search_table = self.validate_demand(wb)
+        search_summary = pd.DataFrame(columns=const.SUMMARY_HEADER)
+        self.create_results_dir()
+        
+        if not search_table:
+            print(&#39;Demanda recusada. Movendo arquivo...&#39;)
+            wb.close()
+            return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+       
+        else:
+            print(&#39;Demanda aceita. Procedendo para a busca...\n\n&#39;)
+            
+            # Dataframe que conterá todos os resultados obtidos na pesquisa
+            resultados = pd.DataFrame(columns=const.RESULTS_HEADER)
+            
+            # Loop para cada linha de dados no Excel capturado
+            for idx, row in enumerate(search_table, start=1):
+                print(f&#39;\n... Linha de dados número #{idx}...&#39;)
+         
+                # Valida a pesquisa
+                search_msg, search_crit, search_param = self.validate_search(row)
+               
+                # SE obtiver sucesso na validação
+                if search_msg[0] == &#39;S&#39;:
+                    print(&#39;Extraindo dados da tabela...&#39;)
+                    records = self.get_table()
+                    nan_filler = self.nan_filler(idx, search_crit, search_param, const.MSG_STATUS[search_msg])
+                    
+                    new_records = pd.concat([pd.DataFrame(columns=const.RESULTS_HEADER), records]).fillna(nan_filler)
+                    resultados = pd.concat([resultados, new_records])
+                    
+                    # Atualiza informações para o resumo
+                    new_search_summary = self.new_search_summary(idx, row, search_msg)
+                    search_summary = pd.concat( [search_summary, new_search_summary])
+                else:
+                    print(&#39;Sem resultados&#39;)
+                    resultados_msg = self.error_msg(idx, search_msg)
+                    resultados = pd.concat([resultados, resultados_msg]) #.fillna(&#39;&#39;)
+                
+                    # Atualiza informações para o resumo
+                    new_search_summary = self.new_search_summary(idx, row, search_msg)
+                    search_summary = pd.concat( [search_summary, new_search_summary])
+
+
+            # caso não haja resultados obtidos para todas as linhas de demanda, 
+            # tomando como base o campo &#39;CEP&#39;
+            # mover Excel para pasta de demanda recusada
+            if not resultados[const.RESULTS_HEADER[6]].count():
+                return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+
+            ws2 = wb.create_sheet(title=&#39;Resultados&#39;)
+            for r in dataframe_to_rows(resultados, index=False, header=True):
+                ws2.append(r)
+            
+            ws3 = wb.create_sheet(title=&#39;Resumo&#39;)
+            for r in dataframe_to_rows(search_summary, index=False, header=True):
+                ws3.append(r)
+
+            wb.save(file_src)
+        wb.close()
+        return (self.new_file_path(file_src, const.COMPLETED), &#39;completed&#39;)
+
+    def get_table(self):
+        &#39;&#39;&#39; Lê a tabela da página HTML resultante da pesquisa e grava os dados em um objeto
+        &#39;pandas.DataFrame&#39;.
+
+        Retorna
+        ----------
+           Dataframe com os dados obtidos da tabela na página com os resultados da pesquisa.
+        &#39;&#39;&#39;
+        # variável para fazer um entre o número de resultados apontado no site e o obtido
+        records_size = int(self.find_element_by_id(&#39;navegacao-total&#39;).text.split()[-1])
+        page_records = pd.DataFrame()
+        next_page = 1
+
+        while next_page:
+            sleep(2) 
+            page_records = page_records.append(pd.read_html(self.page_source))
+
+            # verifica se o botão &#39;Próximo&#39; está visível na página
+            try:
+                next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo&#34;]&#39;)
+            except:
+                try:
+                    next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo esconde&#34;]&#39;)
+                except:
+                    # Sinalizar para tratar caso haja alguma necessidade
+                    print(&#39;****** Algo deu errado...&#39;)
+                break
+
+            next_page.click()
+        
+        records_rows, records_cols = page_records.shape
+        # Check se pegou todos os dados
+        if records_size != records_rows:
+            print(f&#39;Operação falhou.\nResultados na busca: {records_size}.\nRegistros obtidos: {records_rows}.&#39;)
+
+        return page_records
+
+    def nan_filler(self, idx, search_crit, search_param, search_msg):
+        &#39;&#39;&#39;Retorna um dict para ser utilizado no método `fillna`,
+        que preenche os campos vazios de acordo com o valor apontado
+        no nome da coluna.
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada 
+            
+            search_crit (str): Critério de busca utilizado
+            
+            search_param (str): Parâmetro de busca dos campos CEP ou Nome
+            
+            search_msg (str): Mensagem de status da pesquisa
+
+        Retorna
+        ----------
+        Retorna um dict para ser utilizado no método `fillna`,
+        que preenche os campos vazios de acordo com o valor apontado
+        no nome da coluna.
+        
+        &#39;&#39;&#39;
+        return {
+                const.RESULTS_HEADER[0]: idx,
+                const.RESULTS_HEADER[1]: search_crit,
+                const.RESULTS_HEADER[2]: search_param,
+                const.RESULTS_HEADER[7]: search_msg
+                }
+
+    def new_file_path(self, file_src, job_status):
+        &#39;&#39;&#39;Gera o caminho/nome do arquivo de saída do job,
+        adicionando uma timestamp ao nome do arquivo e
+        definindo a pasta de destino conforme a
+        validação da demanda.
+        
+        Parâmetros
+        ----------
+            file_src (str):     Caminho do arquivo original
+            
+            job_status (str):   Mensagem de validação da demanda
+            
+        Retorna
+        ----------
+            Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+        &#39;&#39;&#39;
+        # Timestamp
+        ts = time()
+        # caminho da pasta, nome do arquivo
+        root_path, base_name = os.path.split(file_src)
+        # novo nome com timestamp
+        new_name = base_name.replace(&#39;.xlsx&#39;, f&#39;_{ts}.xlsx&#39;)
+        dest = os.path.join(root_path, job_status, new_name)
+        return dest
+       
+    def new_search(self, search_crit):
+        &#39;&#39;&#39;Aponta o navegador para a página de pesquisa conforme critério: CEP ou Nome.
+
+        A página de pesquisa por CEP ajuda a mitigar a necessidade de filtrar o número
+        do CEP encontrado no campo Logradouro/Localidade (eg: CEP parcial: 05025).
+
+        Parâmetros
+        ----------
+            search_crit (str): Critério de busca
+        &#39;&#39;&#39;
+        try:
+            self.get(const.CRITERIA[&#39;URL&#39;][search_crit])
+        except:
+            print(&#39;Ocorreu algum erro...&#39;)
+        sleep(2)
+
+    def new_search_summary(self, idx, row, search_msg):
+        &#39;&#39;&#39;Método que retorna uma nova linha para a página de resumo
+        
+        Parâmetros
+        ----------
+            idx (int): Linha Excel Entrada 
+            
+            row (list): Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+            search_msg (str): Mensagem de status da pesquisa
+
+        Retorna
+        ----------
+            Dataframe com informações para a página de resumo&#39;&#39;&#39;
+        search_name, search_CEP, search_crit = row
+        
+        new_search_summary = pd.DataFrame(
+            [[idx, search_name, search_CEP, search_crit, const.MSG_STATUS[search_msg]]]
+            ,columns=const.SUMMARY_HEADER
+        )
+        
+        return new_search_summary
+
+    def paste_keys(self, text, elem):
+        &#39;&#39;&#39;Cola a informação no campo de busca.
+
+        Parameters
+        ----------
+            text (str): Termo a ser pesquisado
+
+            elem (WebElement): Elemento HTML do campo de busca
+        &#39;&#39;&#39;
+        os.system(&#34;echo %s| clip&#34; % text.strip())
+        elem.send_keys(Keys.CONTROL, &#39;v&#39;)
+
+    def validate_CEP(self, search_param, no_crit=False):
+        &#39;&#39;&#39;Valida o valor do campo &#39;CEP&#39;.
+
+        Parâmetros
+        ----------
+            search_param (str): Parâmetro de busca do campo &#39;CEP&#39;.
+            
+            no_crit (bool): Flag para as pesquisas que estão
+            com o critério de busca inválido.
+
+        Retorna
+        ----------
+            String com código de sucesso ou fracasso (com motivo).
+            Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+        &#39;&#39;&#39;
+        # CEP vazio
+        if not search_param:
+            return &#39;Denied_no_CEP&#39; if not no_crit else &#39;Nome&#39;
+        else:
+            cep_complete = re.search(const.REGEX_CEP_COMPLETE, search_param)
+            cep_incomplete = re.search(const.REGEX_CEP_INCOMPLETE, search_param)
+            
+        if cep_complete or cep_incomplete:
+            new_param = f&#39;0{search_param}&#39; if len(search_param) == 4 else search_param
+            has_results = self.execute_search(&#39;CEP&#39;, new_param)
+            
+            if has_results:
+                if cep_complete:
+                    return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP&#39;
+                else:
+                    return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP_incomplete&#39;
+
+        return &#39;Denied_invalid_CEP&#39; if not no_crit else &#39;Nome&#39;
+
+    def validate_demand(self, wb):
+        &#39;&#39;&#39;Valida a planilha a ser utilizada na pesquisa ( deve ter 3 colunas e pelo menos 1 linha de dados para a pesquisa).
+        
+        Parâmetros
+        ----------
+            wb (Workbook): Excel a ser validado.
+
+        Retorna
+        ----------
+            Tabela de demanda caso a demanda seja validada.
+            Lista vazia caso contrário.
+        &#39;&#39;&#39;
+        ws = wb.active
+        validation = (ws.max_column == 3) and (ws.max_row &gt;= 1)
+        search_table = list(ws.values) if validation else []
+        return search_table
+ 
+    def validate_name(self, search_param, no_crit=False):
+        &#39;&#39;&#39;Valida o valor do campo Nome.
+
+        Parâmetros
+        ----------
+            search_param (str): Parâmetro de busca do campo &#39;Nome&#39;.
+            
+            no_crit (bool): Flag para as pesquisas que estão
+            com o critério de busca inválido.
+
+        Retorna
+        ----------
+            String com código de sucesso ou fracasso (com motivo).
+            Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+        &#39;&#39;&#39;
+        if not search_param:
+            return f&#39;Denied_no_name&#39;
+        
+        elif re.search(const.REGEX_NAME, search_param):
+            has_results = self.execute_search(&#39;Nome&#39;, search_param)
+
+            if has_results:
+                return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_name&#39;
+            
+        return f&#39;Denied_invalid_name&#39;
+          
+    def validate_search(self, row):
+        &#39;&#39;&#39;Valida a linha de entrada do Excel .
+        
+        Parâmetros
+        ----------
+            row: Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+        Retorna
+        ----------
+            Tuple com 3 valores: 
+            1) Código de sucesso ou fracasso (com motivo)
+            2) Critério de busca (ou `&#39;&#39;` se fracasso).
+            3) Parâmetro de busca (ou `&#39;&#39;` se fracasso).
+        &#39;&#39;&#39;
+        #  Nome,        CEP,     Critério de busca
+        search_name, search_CEP, search_crit = row
+        
+        if search_crit == &#39;CEP&#39;:
+            return (self.validate_CEP(search_CEP),
+                    search_crit,
+                    search_CEP)
+        elif search_crit == &#39;Nome&#39;:
+            return (self.validate_name(search_name),
+                    search_crit,
+                    search_name)        
+        else:
+            # Primeiro tenta validar o CEP
+            CEP_validation = self.validate_CEP(search_CEP, no_crit=1)
+
+            if CEP_validation[0] == &#39;S&#39;:
+                # se der boa a validação do CEP
+                return (CEP_validation, &#39;CEP&#39;, search_CEP)
+            
+            # Se não der boa a validação do CEP, tenta validar o Nome
+            name_validation = self.validate_name(search_name, no_crit=1)
+            if name_validation[0] == &#39;S&#39;:
+                    return (name_validation, &#39;Nome&#39;, search_name)
+            else:
+                return (f&#39;Denied_poor_parameters&#39;, &#39;&#39;, &#39;&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>selenium.webdriver.chrome.webdriver.WebDriver</li>
+<li>selenium.webdriver.remote.webdriver.WebDriver</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="correios.correios.Correios.create_results_dir"><code class="name flex">
+<span>def <span class="ident">create_results_dir</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cria os diretórios para demandas executadas e demandas recusadas (se necessário).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_results_dir(self):
+    &#39;&#39;&#39;Cria os diretórios para demandas executadas e demandas recusadas (se necessário).&#39;&#39;&#39;
+    try:
+        for dir in [const.DENIED, const.COMPLETED]:
+            new_dir = os.path.join(os.getcwd(),const.DATA_PATH, dir)
+            os.makedirs(new_dir, exist_ok=True)
+    except:
+        print(&#39;Aconteceu algo de errado ao criar as pastas&#39;)</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.error_msg"><code class="name flex">
+<span>def <span class="ident">error_msg</span></span>(<span>self, idx, msg)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retorna a mensagem de erro para uma pesquisa.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>idx (int): Linha Excel Entrada.
+
+msg (str): Código da mensagem de erro.
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<p>Um DataFrame com o Linha de Excel Entrada | Mensagem de Erro</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def error_msg(self, idx, msg):
+    &#39;&#39;&#39;Retorna a mensagem de erro para uma pesquisa.
+    
+    Parâmetros
+    ----------
+        idx (int): Linha Excel Entrada.
+        
+        msg (str): Código da mensagem de erro.
+    
+    Retorna
+    ----------
+    Um DataFrame com o Linha de Excel Entrada | Mensagem de Erro
+    &#39;&#39;&#39;
+    resultados_msg = pd.DataFrame(
+        [ [idx, const.MSG_STATUS[msg], const.MSG_STATUS[msg]] ],
+        columns=[
+            const.RESULTS_HEADER[0], # Linha Excel Entrada
+            const.RESULTS_HEADER[1], # Critério de busca
+            const.RESULTS_HEADER[7] # Mensagem
+        ]
+    )              
+    return resultados_msg</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.execute_search"><code class="name flex">
+<span>def <span class="ident">execute_search</span></span>(<span>self, search_crit, search_param)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executa o preenchimento dos dados no website e clica no botão de pesquisa.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>search_crit (str): Critério de busca
+
+search_param (str): Parâmetro de busca dos campos CEP ou Nome
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>1 caso a pesquisa tenha resultados.
+
+0 caso a pesquisa não tenha resultados.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute_search(self, search_crit, search_param):
+    &#39;&#39;&#39;Executa o preenchimento dos dados no website e clica no botão de pesquisa.
+    
+    Parâmetros
+    ----------
+        search_crit (str): Critério de busca
+        
+        search_param (str): Parâmetro de busca dos campos CEP ou Nome
+        
+    Retorna
+    ----------
+        1 caso a pesquisa tenha resultados.
+
+        0 caso a pesquisa não tenha resultados.
+    &#39;&#39;&#39;
+    try:
+        self.new_search(search_crit)
+        search_input = self.find_element_by_id(const.CRITERIA[&#39;SEARCH_BTN_ID&#39;][search_crit])
+        self.paste_keys(search_param, search_input)
+        search_button = self.find_element_by_id(&#39;btn_pesquisar&#39;)
+        search_button.click()
+        # próximos passos: tirar esses sleeps()
+        sleep(2)
+        search_status = self.find_element_by_id(&#39;mensagem-resultado&#39;).text
+        
+        if search_status == const.MSG_STATUS[&#39;No_results&#39;]:
+            return 0
+        # Como a busca é realizada em outra webpage, temos mensagem
+        # de log diferente para cada (&#39;Nome&#39; ou &#39;CEP&#39;)
+        elif search_status == const.CRITERIA[&#39;SEARCH_LOG&#39;][search_crit]:
+            return 1
+    except:
+        # próximos passos: levantar os possíveis erros para tratar
+        print(&#39;Ocorreu algum erro na página.&#39;)
+        return 0</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.get_results"><code class="name flex">
+<span>def <span class="ident">get_results</span></span>(<span>self, file_src)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Consolida todos o procedimentos da classe para a automação:</p>
+<p>1) Faz a validação do arquivo <code>file_src</code> (se recusar a demanda, pula para o passo 6).</p>
+<p>2) Executa a pesquisa no site para cada linha de entrada.</p>
+<p>3) Obtém os dados da tabela gerada pelo site.</p>
+<p>4) Consolida os resultados de todas as linhas de entrada (se não houver resultados,
+marca a demanda como recusada e pula para o passo 6)</p>
+<p>5) Grava os dados no Excel de origem e salva no mesmo arquivo.</p>
+<p>6) Retorna o caminho do arquivo de saída.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>file_src (str): Caminho do arquivo de entrada.
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>Tuple com 2 valores:
+1) Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+A pasta de destino pode ser definida manualmente nas constantes (costants.py) COMPLETED e DENIED.
+2) Status do job (completed | denied)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_results(self, file_src):
+    &#39;&#39;&#39;Consolida todos o procedimentos da classe para a automação:
+    
+    1) Faz a validação do arquivo `file_src` (se recusar a demanda, pula para o passo 6).
+    
+    2) Executa a pesquisa no site para cada linha de entrada.
+    
+    3) Obtém os dados da tabela gerada pelo site.
+
+    4) Consolida os resultados de todas as linhas de entrada (se não houver resultados,
+    marca a demanda como recusada e pula para o passo 6)
+    
+    5) Grava os dados no Excel de origem e salva no mesmo arquivo.
+    
+    6) Retorna o caminho do arquivo de saída.
+    
+    Parâmetros
+    ----------
+        file_src (str): Caminho do arquivo de entrada.
+        
+    Retorna
+    ----------
+        Tuple com 2 valores:
+        1) Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+        A pasta de destino pode ser definida manualmente nas constantes (costants.py) COMPLETED e DENIED.
+        2) Status do job (completed | denied)
+    &#39;&#39;&#39;
+    print(&#39;Validando o arquivo de demanda...&#39;)
+    wb = load_workbook(file_src)
+    search_table = self.validate_demand(wb)
+    search_summary = pd.DataFrame(columns=const.SUMMARY_HEADER)
+    self.create_results_dir()
+    
+    if not search_table:
+        print(&#39;Demanda recusada. Movendo arquivo...&#39;)
+        wb.close()
+        return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+   
+    else:
+        print(&#39;Demanda aceita. Procedendo para a busca...\n\n&#39;)
+        
+        # Dataframe que conterá todos os resultados obtidos na pesquisa
+        resultados = pd.DataFrame(columns=const.RESULTS_HEADER)
+        
+        # Loop para cada linha de dados no Excel capturado
+        for idx, row in enumerate(search_table, start=1):
+            print(f&#39;\n... Linha de dados número #{idx}...&#39;)
+     
+            # Valida a pesquisa
+            search_msg, search_crit, search_param = self.validate_search(row)
+           
+            # SE obtiver sucesso na validação
+            if search_msg[0] == &#39;S&#39;:
+                print(&#39;Extraindo dados da tabela...&#39;)
+                records = self.get_table()
+                nan_filler = self.nan_filler(idx, search_crit, search_param, const.MSG_STATUS[search_msg])
+                
+                new_records = pd.concat([pd.DataFrame(columns=const.RESULTS_HEADER), records]).fillna(nan_filler)
+                resultados = pd.concat([resultados, new_records])
+                
+                # Atualiza informações para o resumo
+                new_search_summary = self.new_search_summary(idx, row, search_msg)
+                search_summary = pd.concat( [search_summary, new_search_summary])
+            else:
+                print(&#39;Sem resultados&#39;)
+                resultados_msg = self.error_msg(idx, search_msg)
+                resultados = pd.concat([resultados, resultados_msg]) #.fillna(&#39;&#39;)
+            
+                # Atualiza informações para o resumo
+                new_search_summary = self.new_search_summary(idx, row, search_msg)
+                search_summary = pd.concat( [search_summary, new_search_summary])
+
+
+        # caso não haja resultados obtidos para todas as linhas de demanda, 
+        # tomando como base o campo &#39;CEP&#39;
+        # mover Excel para pasta de demanda recusada
+        if not resultados[const.RESULTS_HEADER[6]].count():
+            return (self.new_file_path(file_src, const.DENIED), &#39;denied&#39;)
+
+        ws2 = wb.create_sheet(title=&#39;Resultados&#39;)
+        for r in dataframe_to_rows(resultados, index=False, header=True):
+            ws2.append(r)
+        
+        ws3 = wb.create_sheet(title=&#39;Resumo&#39;)
+        for r in dataframe_to_rows(search_summary, index=False, header=True):
+            ws3.append(r)
+
+        wb.save(file_src)
+    wb.close()
+    return (self.new_file_path(file_src, const.COMPLETED), &#39;completed&#39;)</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.get_table"><code class="name flex">
+<span>def <span class="ident">get_table</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Lê a tabela da página HTML resultante da pesquisa e grava os dados em um objeto
+'pandas.DataFrame'.</p>
+<h2 id="retorna">Retorna</h2>
+<p>Dataframe com os dados obtidos da tabela na página com os resultados da pesquisa.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_table(self):
+    &#39;&#39;&#39; Lê a tabela da página HTML resultante da pesquisa e grava os dados em um objeto
+    &#39;pandas.DataFrame&#39;.
+
+    Retorna
+    ----------
+       Dataframe com os dados obtidos da tabela na página com os resultados da pesquisa.
+    &#39;&#39;&#39;
+    # variável para fazer um entre o número de resultados apontado no site e o obtido
+    records_size = int(self.find_element_by_id(&#39;navegacao-total&#39;).text.split()[-1])
+    page_records = pd.DataFrame()
+    next_page = 1
+
+    while next_page:
+        sleep(2) 
+        page_records = page_records.append(pd.read_html(self.page_source))
+
+        # verifica se o botão &#39;Próximo&#39; está visível na página
+        try:
+            next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo&#34;]&#39;)
+        except:
+            try:
+                next_page = self.find_element_by_css_selector(&#39;a[class=&#34;botao proximo esconde&#34;]&#39;)
+            except:
+                # Sinalizar para tratar caso haja alguma necessidade
+                print(&#39;****** Algo deu errado...&#39;)
+            break
+
+        next_page.click()
+    
+    records_rows, records_cols = page_records.shape
+    # Check se pegou todos os dados
+    if records_size != records_rows:
+        print(f&#39;Operação falhou.\nResultados na busca: {records_size}.\nRegistros obtidos: {records_rows}.&#39;)
+
+    return page_records</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.land_first_page"><code class="name flex">
+<span>def <span class="ident">land_first_page</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abre nova página da web com a URL Base</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def land_first_page(self):
+    &#39;&#39;&#39;  Abre nova página da web com a URL Base &#39;&#39;&#39;
+    self.get(const.BASE_URL)</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.nan_filler"><code class="name flex">
+<span>def <span class="ident">nan_filler</span></span>(<span>self, idx, search_crit, search_param, search_msg)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retorna um dict para ser utilizado no método <code>fillna</code>,
+que preenche os campos vazios de acordo com o valor apontado
+no nome da coluna.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>idx (int): Linha Excel Entrada
+
+search_crit (str): Critério de busca utilizado
+
+search_param (str): Parâmetro de busca dos campos CEP ou Nome
+
+search_msg (str): Mensagem de status da pesquisa
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<p>Retorna um dict para ser utilizado no método <code>fillna</code>,
+que preenche os campos vazios de acordo com o valor apontado
+no nome da coluna.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def nan_filler(self, idx, search_crit, search_param, search_msg):
+    &#39;&#39;&#39;Retorna um dict para ser utilizado no método `fillna`,
+    que preenche os campos vazios de acordo com o valor apontado
+    no nome da coluna.
+    
+    Parâmetros
+    ----------
+        idx (int): Linha Excel Entrada 
+        
+        search_crit (str): Critério de busca utilizado
+        
+        search_param (str): Parâmetro de busca dos campos CEP ou Nome
+        
+        search_msg (str): Mensagem de status da pesquisa
+
+    Retorna
+    ----------
+    Retorna um dict para ser utilizado no método `fillna`,
+    que preenche os campos vazios de acordo com o valor apontado
+    no nome da coluna.
+    
+    &#39;&#39;&#39;
+    return {
+            const.RESULTS_HEADER[0]: idx,
+            const.RESULTS_HEADER[1]: search_crit,
+            const.RESULTS_HEADER[2]: search_param,
+            const.RESULTS_HEADER[7]: search_msg
+            }</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.new_file_path"><code class="name flex">
+<span>def <span class="ident">new_file_path</span></span>(<span>self, file_src, job_status)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gera o caminho/nome do arquivo de saída do job,
+adicionando uma timestamp ao nome do arquivo e
+definindo a pasta de destino conforme a
+validação da demanda.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>file_src (str):     Caminho do arquivo original
+
+job_status (str):   Mensagem de validação da demanda
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_file_path(self, file_src, job_status):
+    &#39;&#39;&#39;Gera o caminho/nome do arquivo de saída do job,
+    adicionando uma timestamp ao nome do arquivo e
+    definindo a pasta de destino conforme a
+    validação da demanda.
+    
+    Parâmetros
+    ----------
+        file_src (str):     Caminho do arquivo original
+        
+        job_status (str):   Mensagem de validação da demanda
+        
+    Retorna
+    ----------
+        Novo path do arquivo já com a pasta de destino de acordo com a validação da demanda.
+    &#39;&#39;&#39;
+    # Timestamp
+    ts = time()
+    # caminho da pasta, nome do arquivo
+    root_path, base_name = os.path.split(file_src)
+    # novo nome com timestamp
+    new_name = base_name.replace(&#39;.xlsx&#39;, f&#39;_{ts}.xlsx&#39;)
+    dest = os.path.join(root_path, job_status, new_name)
+    return dest</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.new_search"><code class="name flex">
+<span>def <span class="ident">new_search</span></span>(<span>self, search_crit)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Aponta o navegador para a página de pesquisa conforme critério: CEP ou Nome.</p>
+<p>A página de pesquisa por CEP ajuda a mitigar a necessidade de filtrar o número
+do CEP encontrado no campo Logradouro/Localidade (eg: CEP parcial: 05025).</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>search_crit (str): Critério de busca
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_search(self, search_crit):
+    &#39;&#39;&#39;Aponta o navegador para a página de pesquisa conforme critério: CEP ou Nome.
+
+    A página de pesquisa por CEP ajuda a mitigar a necessidade de filtrar o número
+    do CEP encontrado no campo Logradouro/Localidade (eg: CEP parcial: 05025).
+
+    Parâmetros
+    ----------
+        search_crit (str): Critério de busca
+    &#39;&#39;&#39;
+    try:
+        self.get(const.CRITERIA[&#39;URL&#39;][search_crit])
+    except:
+        print(&#39;Ocorreu algum erro...&#39;)
+    sleep(2)</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.new_search_summary"><code class="name flex">
+<span>def <span class="ident">new_search_summary</span></span>(<span>self, idx, row, search_msg)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Método que retorna uma nova linha para a página de resumo</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>idx (int): Linha Excel Entrada
+
+row (list): Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+search_msg (str): Mensagem de status da pesquisa
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>Dataframe com informações para a página de resumo
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_search_summary(self, idx, row, search_msg):
+    &#39;&#39;&#39;Método que retorna uma nova linha para a página de resumo
+    
+    Parâmetros
+    ----------
+        idx (int): Linha Excel Entrada 
+        
+        row (list): Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+        search_msg (str): Mensagem de status da pesquisa
+
+    Retorna
+    ----------
+        Dataframe com informações para a página de resumo&#39;&#39;&#39;
+    search_name, search_CEP, search_crit = row
+    
+    new_search_summary = pd.DataFrame(
+        [[idx, search_name, search_CEP, search_crit, const.MSG_STATUS[search_msg]]]
+        ,columns=const.SUMMARY_HEADER
+    )
+    
+    return new_search_summary</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.paste_keys"><code class="name flex">
+<span>def <span class="ident">paste_keys</span></span>(<span>self, text, elem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cola a informação no campo de busca.</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>text (str): Termo a ser pesquisado
+
+elem (WebElement): Elemento HTML do campo de busca
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paste_keys(self, text, elem):
+    &#39;&#39;&#39;Cola a informação no campo de busca.
+
+    Parameters
+    ----------
+        text (str): Termo a ser pesquisado
+
+        elem (WebElement): Elemento HTML do campo de busca
+    &#39;&#39;&#39;
+    os.system(&#34;echo %s| clip&#34; % text.strip())
+    elem.send_keys(Keys.CONTROL, &#39;v&#39;)</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.validate_CEP"><code class="name flex">
+<span>def <span class="ident">validate_CEP</span></span>(<span>self, search_param, no_crit=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Valida o valor do campo 'CEP'.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>search_param (str): Parâmetro de busca do campo 'CEP'.
+
+no_crit (bool): Flag para as pesquisas que estão
+com o critério de busca inválido.
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>String com código de sucesso ou fracasso (com motivo).
+Os valores possíveis de retorno são as chaves da constante 'MSG_STATUS'.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_CEP(self, search_param, no_crit=False):
+    &#39;&#39;&#39;Valida o valor do campo &#39;CEP&#39;.
+
+    Parâmetros
+    ----------
+        search_param (str): Parâmetro de busca do campo &#39;CEP&#39;.
+        
+        no_crit (bool): Flag para as pesquisas que estão
+        com o critério de busca inválido.
+
+    Retorna
+    ----------
+        String com código de sucesso ou fracasso (com motivo).
+        Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+    &#39;&#39;&#39;
+    # CEP vazio
+    if not search_param:
+        return &#39;Denied_no_CEP&#39; if not no_crit else &#39;Nome&#39;
+    else:
+        cep_complete = re.search(const.REGEX_CEP_COMPLETE, search_param)
+        cep_incomplete = re.search(const.REGEX_CEP_INCOMPLETE, search_param)
+        
+    if cep_complete or cep_incomplete:
+        new_param = f&#39;0{search_param}&#39; if len(search_param) == 4 else search_param
+        has_results = self.execute_search(&#39;CEP&#39;, new_param)
+        
+        if has_results:
+            if cep_complete:
+                return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP&#39;
+            else:
+                return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_CEP_incomplete&#39;
+
+    return &#39;Denied_invalid_CEP&#39; if not no_crit else &#39;Nome&#39;</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.validate_demand"><code class="name flex">
+<span>def <span class="ident">validate_demand</span></span>(<span>self, wb)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Valida a planilha a ser utilizada na pesquisa ( deve ter 3 colunas e pelo menos 1 linha de dados para a pesquisa).</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>wb (Workbook): Excel a ser validado.
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>Tabela de demanda caso a demanda seja validada.
+Lista vazia caso contrário.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_demand(self, wb):
+    &#39;&#39;&#39;Valida a planilha a ser utilizada na pesquisa ( deve ter 3 colunas e pelo menos 1 linha de dados para a pesquisa).
+    
+    Parâmetros
+    ----------
+        wb (Workbook): Excel a ser validado.
+
+    Retorna
+    ----------
+        Tabela de demanda caso a demanda seja validada.
+        Lista vazia caso contrário.
+    &#39;&#39;&#39;
+    ws = wb.active
+    validation = (ws.max_column == 3) and (ws.max_row &gt;= 1)
+    search_table = list(ws.values) if validation else []
+    return search_table</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.validate_name"><code class="name flex">
+<span>def <span class="ident">validate_name</span></span>(<span>self, search_param, no_crit=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Valida o valor do campo Nome.</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>search_param (str): Parâmetro de busca do campo 'Nome'.
+
+no_crit (bool): Flag para as pesquisas que estão
+com o critério de busca inválido.
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>String com código de sucesso ou fracasso (com motivo).
+Os valores possíveis de retorno são as chaves da constante 'MSG_STATUS'.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_name(self, search_param, no_crit=False):
+    &#39;&#39;&#39;Valida o valor do campo Nome.
+
+    Parâmetros
+    ----------
+        search_param (str): Parâmetro de busca do campo &#39;Nome&#39;.
+        
+        no_crit (bool): Flag para as pesquisas que estão
+        com o critério de busca inválido.
+
+    Retorna
+    ----------
+        String com código de sucesso ou fracasso (com motivo).
+        Os valores possíveis de retorno são as chaves da constante &#39;MSG_STATUS&#39;.
+    &#39;&#39;&#39;
+    if not search_param:
+        return f&#39;Denied_no_name&#39;
+    
+    elif re.search(const.REGEX_NAME, search_param):
+        has_results = self.execute_search(&#39;Nome&#39;, search_param)
+
+        if has_results:
+            return f&#39;Success{&#34;_no_criteria&#34; if no_crit else &#34;&#34;}_name&#39;
+        
+    return f&#39;Denied_invalid_name&#39;</code></pre>
+</details>
+</dd>
+<dt id="correios.correios.Correios.validate_search"><code class="name flex">
+<span>def <span class="ident">validate_search</span></span>(<span>self, row)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Valida a linha de entrada do Excel .</p>
+<h2 id="parametros">Parâmetros</h2>
+<pre><code>row: Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+</code></pre>
+<h2 id="retorna">Retorna</h2>
+<pre><code>Tuple com 3 valores: 
+1) Código de sucesso ou fracasso (com motivo)
+2) Critério de busca (ou `''` se fracasso).
+3) Parâmetro de busca (ou `''` se fracasso).
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_search(self, row):
+    &#39;&#39;&#39;Valida a linha de entrada do Excel .
+    
+    Parâmetros
+    ----------
+        row: Linha de busca. Tuple/List com 3 valores(Nome, CEP, Critério de Busca).
+
+    Retorna
+    ----------
+        Tuple com 3 valores: 
+        1) Código de sucesso ou fracasso (com motivo)
+        2) Critério de busca (ou `&#39;&#39;` se fracasso).
+        3) Parâmetro de busca (ou `&#39;&#39;` se fracasso).
+    &#39;&#39;&#39;
+    #  Nome,        CEP,     Critério de busca
+    search_name, search_CEP, search_crit = row
+    
+    if search_crit == &#39;CEP&#39;:
+        return (self.validate_CEP(search_CEP),
+                search_crit,
+                search_CEP)
+    elif search_crit == &#39;Nome&#39;:
+        return (self.validate_name(search_name),
+                search_crit,
+                search_name)        
+    else:
+        # Primeiro tenta validar o CEP
+        CEP_validation = self.validate_CEP(search_CEP, no_crit=1)
+
+        if CEP_validation[0] == &#39;S&#39;:
+            # se der boa a validação do CEP
+            return (CEP_validation, &#39;CEP&#39;, search_CEP)
+        
+        # Se não der boa a validação do CEP, tenta validar o Nome
+        name_validation = self.validate_name(search_name, no_crit=1)
+        if name_validation[0] == &#39;S&#39;:
+                return (name_validation, &#39;Nome&#39;, search_name)
+        else:
+            return (f&#39;Denied_poor_parameters&#39;, &#39;&#39;, &#39;&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="correios" href="index.html">correios</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="correios.correios.Correios" href="#correios.correios.Correios">Correios</a></code></h4>
+<ul class="two-column">
+<li><code><a title="correios.correios.Correios.create_results_dir" href="#correios.correios.Correios.create_results_dir">create_results_dir</a></code></li>
+<li><code><a title="correios.correios.Correios.error_msg" href="#correios.correios.Correios.error_msg">error_msg</a></code></li>
+<li><code><a title="correios.correios.Correios.execute_search" href="#correios.correios.Correios.execute_search">execute_search</a></code></li>
+<li><code><a title="correios.correios.Correios.get_results" href="#correios.correios.Correios.get_results">get_results</a></code></li>
+<li><code><a title="correios.correios.Correios.get_table" href="#correios.correios.Correios.get_table">get_table</a></code></li>
+<li><code><a title="correios.correios.Correios.land_first_page" href="#correios.correios.Correios.land_first_page">land_first_page</a></code></li>
+<li><code><a title="correios.correios.Correios.nan_filler" href="#correios.correios.Correios.nan_filler">nan_filler</a></code></li>
+<li><code><a title="correios.correios.Correios.new_file_path" href="#correios.correios.Correios.new_file_path">new_file_path</a></code></li>
+<li><code><a title="correios.correios.Correios.new_search" href="#correios.correios.Correios.new_search">new_search</a></code></li>
+<li><code><a title="correios.correios.Correios.new_search_summary" href="#correios.correios.Correios.new_search_summary">new_search_summary</a></code></li>
+<li><code><a title="correios.correios.Correios.paste_keys" href="#correios.correios.Correios.paste_keys">paste_keys</a></code></li>
+<li><code><a title="correios.correios.Correios.validate_CEP" href="#correios.correios.Correios.validate_CEP">validate_CEP</a></code></li>
+<li><code><a title="correios.correios.Correios.validate_demand" href="#correios.correios.Correios.validate_demand">validate_demand</a></code></li>
+<li><code><a title="correios.correios.Correios.validate_name" href="#correios.correios.Correios.validate_name">validate_name</a></code></li>
+<li><code><a title="correios.correios.Correios.validate_search" href="#correios.correios.Correios.validate_search">validate_search</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
